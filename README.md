@@ -9,7 +9,7 @@
 |  first_name        | string | null: false              |
 |  last_name_kana    | string | null: false              |
 |  first_name_kana   | string | null: false              |
-|  birthday          | integer| null: false              |
+|  birthday          | date   | null: false              |
 
 
 <!-- Association -->
@@ -24,16 +24,16 @@
 | item_name          | string     | null: false                    |
 | explanation        | text       | null: false,                   |
 | user               | references | null: false, foreign_key: true |
-| category           | string     | null: false                    |
-| status             | string     | null: false                    |
-| derivery_charge    | integer    | null: false                    |
-| area               | syring     | null: false                    |
-| days_to_ship       | string     | null: false                    |
+| category_id        | integer    | null: false                    |
+| status_id          | integer    | null: false                    |
+| derivery_charge_id | integer    | null: false                    |
+| area_id            | integer    | null: false                    |
+| days_to_ship_id    | integer    | null: false                    |
 | price              | integer    | null: false                    |
 
 <!-- Association -->
 - belongs_to :user
-- has_one :buys
+- has_one :buy
 
 
 
@@ -42,26 +42,28 @@
 | ------------------ | ------ ----| ----------- -----------        |
 | item               |references  | null: false, foreign_key: true |
 | user               |references  | null: false, foreign_key: true |
-| adresses           |references  | null: false, foreign_key: true |
 
 
 <!-- Association -->
 - has_one :adress
-- belong to :item
+- belongs_to :item
+- belongs_to :user
 
 
 <!-- adressesテーブル -->
 | Column             | Type       | Options                        |
 | ------------------ | ------ ----| ----------- -----------        |
 | shipping_address   | string     | null: false                    |
-| postal_code        | integer    | null: false                    |
-| prefectures        | text       | null: false                    |
-| municipalities     |references  | null: false, foreign_key: true |
-| address            |references  | null: false, foreign_key: true |
-| building_name      |references  | null: false, foreign_key: true |
-| telephone_number   |references  | null: false, foreign_key: true |
+| postal_code        | string     | null: false                    |
+| area_id            | integer    | null: false                    |
+| municipalities     |references  | null: false                    |
+| address            |references  | null: false                    |
+| building_name      |references  | null: false                    |
+| telephone_number   | string     | null: false                    |
+| item               |references  | null: false, foreign_key: true |
+| user               |references  | null: false, foreign_key: true |
 
 
 <!-- Association -->
-- belong to :buys
+- belongs_to :buy
 
