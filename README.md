@@ -55,11 +55,11 @@
 | ------------------ | ------ ----| ----------- -----------        |
 | postal_code        | string     | null: false                    |
 | area_id            | integer    | null: false                    |
-| municipalities     |references  | null: false                    |
-| address            |references  | null: false                    |
-| building_name      |references  | null: false                    |
+| municipalities     | string     | null: false                    |
+| address            | string     | null: false                    |
+| building_name      | string     |                                |
 | telephone_number   | string     | null: false                    |
-
+| buy                |references  | null: false, foreign_key: true |
 
 
 <!-- Association -->
