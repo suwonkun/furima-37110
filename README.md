@@ -53,15 +53,13 @@
 <!-- adressesテーブル -->
 | Column             | Type       | Options                        |
 | ------------------ | ------ ----| ----------- -----------        |
-| shipping_address   | string     | null: false                    |
 | postal_code        | string     | null: false                    |
 | area_id            | integer    | null: false                    |
 | municipalities     |references  | null: false                    |
 | address            |references  | null: false                    |
 | building_name      |references  | null: false                    |
 | telephone_number   | string     | null: false                    |
-| item               |references  | null: false, foreign_key: true |
-| user               |references  | null: false, foreign_key: true |
+
 
 
 <!-- Association -->
