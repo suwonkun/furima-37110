@@ -65,3 +65,10 @@
 <!-- Association -->
 - belongs_to :buy
 
+
+**herokuに変更を反映**
+`% git push heroku master`
+
+`% heroku run rails db:migrate`
+
+`% heroku apps:info`
