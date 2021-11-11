@@ -66,9 +66,9 @@
 - belongs_to :buy
 
 
-**herokuに変更を反映**
-`% git push heroku master`
 
-`% heroku run rails db:migrate`
+ git push heroku master
 
-`% heroku apps:info`
+ heroku run rails db:migrate:status
+
+ heroku apps:info
