@@ -6,14 +6,13 @@ class Item < ApplicationRecord
   belongs_to :derivery_charge
   belongs_to :days_to_ship
   belongs_to :user
-  has_one :buy
+  # has_one :buy
   has_one_attached :image
 
   validates :item_name, presence: true
   validates :explanation, presence: true
   validates :image,presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 1000000 },
-  format: { with: /\A[0-9]+\z/ }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :area_id, numericality: { other_than: 0 } 
   validates :status_id, numericality: { other_than: 0 } 
   validates :category_id, numericality: { other_than: 0 } 
