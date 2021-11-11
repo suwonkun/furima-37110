@@ -8,7 +8,8 @@ FactoryBot.define do
     area_id                  {'1'}
     days_to_ship_id          {'1'}
     price                    {'1000'}
-    association :user              
+    association :user
+    
     
 
     after(:build) do |item|
