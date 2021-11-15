@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 end
 
 ローカルリポジトリ(PC)
-master                                                              master ver2
+master                                                                                                        master ver2
     topic brach                        topic brach ver2
     ①ブランチを切ってPublish Branch   ②コードを編集してコミット ③Push
 
 
 リモートリポジトリ(GitHub)
-master                                              master ver2
-    topic brach
+master                                                                                                           master ver2
+    topic brach                                                   topic brach ver2
