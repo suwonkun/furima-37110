@@ -7,7 +7,7 @@ end
 ローカルリポジトリ(PC)
 master                                                              master ver2
     topic brach                        topic brach ver2
-    ①ブランチを切ってPublish Branch   ②コードを編集してコミット
+    ①ブランチを切ってPublish Branch   ②コードを編集してコミット ③Push
 
 
 リモートリポジトリ(GitHub)
