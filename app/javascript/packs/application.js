@@ -4,9 +4,10 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("@rails/activestorage").start()
+// require("@rails/activestorage").start()
 require("channels")
 require("../price")
+require("../card")
 
 
 
