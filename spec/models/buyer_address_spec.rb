@@ -47,16 +47,40 @@ RSpec.describe BuyerAddress, type: :model do
         expect(@buyer_address.errors.full_messages).to include("Address can't be blank")
       end
       it "電話番号の入力が必須であること" do
-        @buyer_address.address    = ''
+        @buyer_address.telephone_number    = ''
         @buyer_address.valid?
-        expect(@buyer_address.errors.full_messages).to include("Address can't be blank")
+        expect(@buyer_address.errors.full_messages).to include("Telephone number can't be blank")
       end
       it "tokenが必須であること" do
         @buyer_address.token    = nil
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include("Token can't be blank")
       end
-     
+      it "9桁以下では登録できないこと" do
+        @buyer_address.telephone_number   = '11111111'
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("Telephone number is invalid")
       end
+      it "12桁以上では登録できないこと" do
+        @buyer_address.telephone_number    = '1111111111111'
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("Telephone number is invalid")
+      end
+      it "電話番号に半角英数字以外が含まれていると登録できないこと" do
+        @buyer_address.telephone_number    = 'ああああああ'
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("Telephone number is invalid")
+      end
+      it "userが紐付いていなければ出品できない" do
+        @buyer_address.user_id   = nil
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("User can't be blank")
+      end
+      it "itemが紐付いていなければ出品できない" do
+      @buyer_address.item_id    = nil
+      @buyer_address.valid?
+      expect(@buyer_address.errors.full_messages).to include("Item can't be blank")
+      end
+    end
   end
 end

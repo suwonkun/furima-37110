@@ -1,9 +1,7 @@
-class BuyController < ApplicationController
-  before_action :move_to_index
-  before_action :authenticate_user!, except: :index
-
+class BuysController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item, only: [:index,:create]
   def index
-    @item = Item.find(params[:item_id]) 
     if @item.user_id == current_user.id || @item.buy.present? 
       redirect_to root_path
     end
@@ -12,7 +10,6 @@ class BuyController < ApplicationController
 
  
   def create
-    @item = Item.find(params[:item_id])
     @buyer_address = BuyerAddress.new(buy_params)
     if @buyer_address.valid?
       pay_item
@@ -37,10 +34,8 @@ class BuyController < ApplicationController
     currency: 'jpy'                 
   )
   end
-  def move_to_index
-    unless user_signed_in?
-      redirect_to root_path
-    end
-  end
+  def set_item
+    @item = Item.find(params[:item_id])
+   end
 
 end
