@@ -3,11 +3,8 @@ class BuyController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @item = Item.find(params[:item_id])
-    if @item.user_id == current_user.id
-      redirect_to root_path
-    end
-     if @item.buy.present? 
+    @item = Item.find(params[:item_id]) 
+    if @item.user_id == current_user.id || @item.buy.present? 
       redirect_to root_path
     end
     @buyer_address = BuyerAddress.new
